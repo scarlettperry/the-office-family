@@ -1,30 +1,37 @@
-import React from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import Filter from './Filter.js'
+import EmployeeShowcase from './EmployeeShowcase.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+class App extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      employees: []
+    }
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/api/v1/employees")
+      .then(resp => resp.json())
+      .then(employees => this.setState({employees}))
+  }
+
+
+  render(){
+    return(
+      <div>
+        <Filter
+          employees={this.state.employees}
+        />
+        <EmployeeShowcase 
+          employees={this.state.employees}
+        />
+      </div>
+    )
+  }
 }
 
-//filter component - filter employees by branch and/or department
-//search bar - type in employee name
-//all employee componet & then single employee component
-//create employee - form to add a new employee
-//edit employee - form to edit a employee
-
-export default App;
+export default App
