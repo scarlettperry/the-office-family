@@ -8,9 +8,9 @@ const EmployeeCard = (props) => {
                 {props.employee.title}<br/>
                 {props.employee.department.name}<br/>
                 {props.employee.branch.name}<br/>
+                <button>Edit</button>
             </div>
         </div>
-
     )
 }
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Filter from './Filter.js'
 import EmployeeShowcase from './EmployeeShowcase.js'
+// import EditEmployee from './EditEmployee.js'
 
 import './App.css'
 
@@ -29,6 +30,7 @@ class App extends Component {
         <EmployeeShowcase 
           employees={this.state.employees}
         />
+        {/* <EditEmployee /> */}
       </div>
     )
   }
